@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Packaging
+*.egg-info/
+.dist-info/
+
+# Optional: build and distribution directories
+build/
+dist/
+
+# Sensitive files
+*.pem
+*.key
+.env
+
+# Ignore compiled C extensions and DLLs from local envs
+*.so
+*.pyd
+*.dll
