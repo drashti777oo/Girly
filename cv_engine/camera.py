@@ -1,12 +1,18 @@
 import cv2
 from cv_engine.face_detector import FaceDetector
 from cv_engine.renderer import Renderer
+from cv_engine.overlay_engine import OverlayEngine
+
 def start_camera():
 
     cap = cv2.VideoCapture(0)
 
     detector = FaceDetector()
     renderer = Renderer()
+    overlay = OverlayEngine()
+    filter_img = overlay.load_filter("assets/filters/test.png")
+
+    print(filter_img.shape) 
 
     prev_x = 0
     prev_y = 0
@@ -21,6 +27,13 @@ def start_camera():
             break
 
         faces = detector.detect_faces(frame)
+
+        frame = overlay.apply_filter(
+            frame,
+            filter_img,
+            50,
+            50
+        )
 
         for face in faces:
             x = face["x"]
